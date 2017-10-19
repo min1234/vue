@@ -2,19 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vue.js</title>
-    <script src="js/vue.js" type="text/javascript"></script>
+    <title>Vue.js hellow word</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
 </head>
 
 <body>
-    <h1>vue2.0实例</h1>
+    <h1>Hellow Word</h1>
     <hr>
-    <ol>
-        <li>
-            <a href="hello.html">hellow word实例</a>
-        </li>
-    </ol>
-
+    <div id="app">
+        {{message}}
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'hellow word'
+            }
+        })
+    </script>
 
 </body>
+
 </html>
