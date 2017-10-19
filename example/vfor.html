@@ -15,6 +15,27 @@
         </ul>
     </div>
     <b>v-for指令写在循环元素后边</b>
+    <b>computed参数可以自定义属性</b>
+    <b>this.items通过this访问data里的属性</b>
+    <div>
+        <b>
+            排序函数(升):
+            <br>
+            function sortNumber(a,b){
+            return a-b;
+            }
+            <br>
+
+            排序函数(降):
+            <br>
+            function sortNumber(a,b){
+            return b-a;
+            }
+
+
+        </b>
+
+    </div>
     <script type="text/javascript">
         var app = new Vue({
             el:'#app',
@@ -28,7 +49,6 @@
             }
         });
         function sortNumber(a,b){
-            console.log(a,b)
             return a-b;
         }
     </script>
