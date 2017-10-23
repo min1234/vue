@@ -13,6 +13,12 @@
                 {{item}}
             </li>
         </ul>
+        <ul>
+            <li v-for="(student,index) in sortStudents">
+               {{index+1}}: {{student.name}}-{{student.age}}
+            </li>
+        </ul>
+
     </div>
     <b>v-for指令写在循环元素后边</b>
     <b>computed参数可以自定义属性</b>
@@ -34,22 +40,44 @@
 
 
         </b>
+        <br>
+        <b>序列号：</b>排序（obj,index){{index+1}}
 
     </div>
     <script type="text/javascript">
         var app = new Vue({
             el:'#app',
             data:{
-                items:[1,2,4,5,65,78,43,0]
+                items:[1,2,4,5,65,78,43,0],
+                students:[
+                    {'name':'pang','age':18},
+                    {'name':'panda','age':20},
+                    {'name':'cat','age':12},
+                    {'name':'king','age':30}
+
+
+
+                ]
             },
             computed:{
                 sortItems:function(){
                     return this.items.sort(sortNumber);
+                },
+                sortStudents:function(){
+                    return sortByKey(this.students,'age');
                 }
             }
         });
         function sortNumber(a,b){
             return a-b;
+        }
+        //数组对象方法排序:
+        function sortByKey(array,key){
+            return array.sort(function(a,b){
+                var x=a[key];
+                var y=b[key];
+                return ((x<y)?-1:((x>y)?1:0));
+            });
         }
     </script>
 </body>
