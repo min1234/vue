@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model数据源</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <h1>v-model双向数据绑定</h1>
+    <hr>
+    <div id="app">
+       <p>
+           原始文本信息{{message}}
+       </p>
+        <p>
+            <b>文本框：</b>
+            <input type="text" v-model="message" />
+            <input type="text" v-model.lazy="message" />
+            <input type="text" v-model.number="message" />
+            <input type="text" v-model.trim="message" />
+            <p>文本域</p>
+            <textarea cols=10 rows=10 v-model="message">
+                {{message}}
+            </textarea>
+            <p>多选框绑定一个值</p>
+            <input type="checkbox" id="istrue" v-model="istrue" />
+            <label for="istrue">{{istrue}}</label>
+        <p>多选框绑定数组</p>
+        <input type="checkbox" id="iswho1" value="iswho1" v-model="iswho" />
+        <label for="istrue">iswho1</label>
+        <input type="checkbox" id="iswho2" value="iswho2" v-model="iswho" />
+        <label for="istrue">iswho2</label>
+        <input type="checkbox" id="iswho3" value="iswho3" v-model="iswho" />
+        <label for="istrue">iswho3</label>
+        <p>{{iswho}}</p>
+        <p>单选框绑定数组</p>
+        <input type="radio" id="sex1" value="男" v-model="sex"/>
+        <label for="sex1">男</label>
+        <input type="radio" id="sex2" value="女" v-model="sex"/>
+        <label for="sex2">女</label>
+        <p>你选择的性别是：{{sex}}</p>
+
+        </p>
+        <div>修饰符</div>
+        <div>v-model.lazy:懒同步</div>
+        <div>v-model.number:数字同步</div>
+        <div>v-model.trim:空格不同步</div>
+
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:'hellow word',
+                istrue:'',
+                iswho:[],
+                sex:''
+            }
+        })
+    </script>
+</body>
+</html>

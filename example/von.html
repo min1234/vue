@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on绑定事件监听器</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+
+</head>
+<body>
+<h1>v-on实例</h1>
+<hr>
+    <div id="app">
+        <div >本场得分：{{score}}</div>
+        <button v-on:click="add">加分</button>
+        <button @click="jian">减分</button>
+        <h5>v-on:事件</h5>
+        <h5>@事件</h5>
+        <input type="text" v-on:keyup.enter="onenter" v-model="score2"/>
+        <h5>可以绑定键盘码</h5>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el : '#app',
+            data : {
+                score:0,
+                score2:1
+
+            },
+            methods:{
+                add:function(){
+                   this.score++;
+                },
+                jian:function(){
+                    this.score--;
+                },
+                onenter:function(){
+                    this.score = this.score+parseInt(this.score2);
+                }
+
+            }
+        })
+
+    </script>
+
+</body>
+</html>
