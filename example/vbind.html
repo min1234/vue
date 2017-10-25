@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vbind绑定标签属性</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+    <style>
+        .classa{
+            color:red;
+        }
+        .classb{
+            color:green;
+        }
+        .classc{
+            font-size:30px;
+        }
+    </style>
+</head>
+<body>
+<h1>v-bind绑定标签属性</h1>
+<hr>
+<div id="app">
+    <img v-bind:src="imgurl" width="200px"/>
+    <br>
+    <a :href="weburl" target="_blank">技术胖博客</a>
+    <br>
+    <b>v-bind是处理HTML中的标签属性的，例如div就是一个标签，img也是一个标签，我们绑定img上的src进行动态赋值。</b>
+    <br>
+    <b>v-bind:属性简写:属性</b>
+    <br>
+    <span :class="classname">1.绑定 class</span>
+    <span :class="{classa:isok}">2.绑定class的判断</span>
+    <span :class="[classA,classC]">3.绑定多个class</span>
+    <span :class="isok?classA:classC">4.绑定class中的三元运算符</span>
+
+    <br>
+    <div>
+        <input type="checkbox" id="isok" v-model="isok"/>
+        <label for="isok">isok:{{isok}}</label>
+    </div>
+    <div :style="{color:red,fontSize:big}">5.绑定style值</div>
+    <b>style书写使用驼峰不能用中横杠</b>
+    <div :style="style">用对象绑定style</div>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello word',
+            imgurl:'http://jspang.com/wp-content/uploads/2017/02/vue01-2.jpg',
+            weburl:'http://jspang.com/',
+            classname:'classa',
+            isok:false,
+            classA:'classa',
+            classC:'classc',
+            red:'red',
+            big:'30px',
+            style:{
+                color:'green',
+                fontSize:'30px',
+                fontWeight:'bold'
+            }
+
+
+        }
+
+    })
+</script>
+
+</body>
+</html>

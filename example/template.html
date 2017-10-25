@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template 制作模版</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+
+</head>
+<body>
+<h1>Template 制作模版</h1>
+<hr>
+<p>建模板的三种方法：</p>
+<ol>
+    <li>
+        <h5>直接写在选项里的模板</h5>
+        <p>直接在构造器里的template选项后边编写。这种写法比较直观，但是如果模板html代码太多，不建议这么写。</p>
+
+    </li>
+    <li>
+        <h5>写在template标签里的模板</h5>
+        <p>这种写法更像是在写HTML代码，就算不会写Vue的人，也可以制作页面。</p>
+    </li>
+    <li>
+        <h5>写在script标签里的模板</h5>
+        <p>这种写模板的方法，可以让模板文件从外部引入。</p>
+    </li>
+</ol>
+<div id="app">
+    {{message}}
+</div>
+<template id="template">
+    <h2 style="color:red" >template标签模板</h2>
+</template>
+<script type="x-template" id="template2">
+    <h2 style="color:blue" >script标签模板</h2>
+</script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello'
+        },
+        template:'#template2'
+        /*1.选项
+        template:`
+            <h2 style="color:green">我是选项模板</h2>
+        `
+        */
+    })
+</script>
+</body>
+</html>

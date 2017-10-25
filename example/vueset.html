@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.set全局操作</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+
+</head>
+<body>
+<h1>Vue.set全局操作</h1>
+<hr>
+<div id="app">
+    <ol>
+        <li v-for="item in arr">{{item}}</li>
+    </ol>
+    <button onclick="add()">添加</button>
+    <br>
+    <b>
+        *当你利用索引直接设置一个项时，vue不会为我们自动更新。
+        <br>
+        *当你修改数组的长度时，vue不会为我们自动更新。
+    </b>
+    <b>需要用Vue.set来修改</b>
+    <h5 style="color:red;">{{count}}</h5>
+    <button onclick="gai()">修改外部数据</button>
+
+</div>
+<script>
+    function add(){
+       // arr[1] = 0.5;
+        Vue.set(app.arr,1,0.5);
+    }
+    function gai(){
+       // app.count++;
+        Vue.set(outData,'count',4);
+       // outData.count++;
+        console.log(outData.count);
+    }
+    var outData = {
+        arr:[0,1,2],
+        count:1
+    }
+    var app = new Vue({
+        el:'#app',
+        data:outData
+
+    })
+</script>
+</body>
+</html>

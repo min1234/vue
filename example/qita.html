@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>其他内部指令(v-pre & v-cloak & v-once)</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+
+</head>
+<body>
+<h1>其他内部指令(v-pre & v-cloak & v-once)</h1>
+<hr>
+<div id="app">
+    <div v-pre>{{message}}</div>
+    <b>v-pre原样输出</b>
+    <div v-cloak>v-cloak渲染完成再显示</div>
+    <div v-once>{{message}}</div>
+    <input type="text" id="message" v-model="message"/>
+    <div>{{message}}</div>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'v-once只渲染1次',
+
+        }
+    })
+</script>
+</body>
+</html>
