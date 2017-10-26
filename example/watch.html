@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Watch 选项 监控数据</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+
+</head>
+<body>
+<h1>Watch 选项 监控数据</h1>
+<hr>
+<div id="app">
+    <p>今日温度:{{wendu}}</p>
+    <p>穿衣建议：{{advice}}</p>
+    <button @click="zengjia">增加</button>
+    <button @click="jianshao">降低</button>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello',
+            wendu:14,
+            advice:'夹克长裙'
+        },
+        methods:{
+            zengjia:function(){
+                this.wendu+=5;
+            },
+            jianshao:function(){
+                this.wendu-=5;
+            }
+        }
+        /*
+        , watch:{
+            wendu:function(newVal,oldVal){
+                if(newVal>26){
+                    this.advice = '短袖';
+                }else if(newVal<26&&newVal>0){
+                    this.advice = '夹克长裙';
+                }else{
+                    this.advice = '羽绒服';
+                }
+            }
+        }
+         */
+
+    });
+    app.$watch('wendu',function(newVal,oldVal){
+        if(newVal>26){
+            this.advice = '短袖';
+        }else if(newVal<26&&newVal>0){
+            this.advice = '夹克长裙';
+        }else{
+            this.advice = '羽绒服';
+        }
+    });
+
+</script>
+
+</body>
+</html>

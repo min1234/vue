@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed Option  计算选项</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+
+</head>
+<body>
+<h1>computed Option  计算选项</h1>
+<hr>
+<div id="app">
+    <p>
+        {{newPrice}}
+    </p>
+    <ul>
+        <li v-for="news in reverseNews">{{news.title}}-{{news.date}}</li>
+    </ul>
+</div>
+<script>
+    var newsList = [
+        {'title':'哈','date':'2017/10/25'},
+        {'title':'哈哈','date':'2017/10/26'},
+        {'title':'哈哈哈','date':'2017/10/27'}
+
+
+    ]
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello',
+            price:100,
+            newsList:newsList
+        },
+        computed:{
+            newPrice:function(){
+                return this.price = '￥'+this.price+'元'
+            },
+            reverseNews:function(){
+                return this.newsList = this.newsList.reverse();
+            }
+        }
+    })
+</script>
+</body>
+</html>

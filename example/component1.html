@@ -7,17 +7,39 @@
 
 </head>
 <body>
-<h1>component1</h1>
+<h1>component1初识组件</h1>
 <hr>
+<b>
+    前言（废话）：component组件是Vue学习的重点、重点、重点，重要的事情说三遍。所以你必须学好Vue component。其实组件就是制作自定义的标签，这些标签在HTML中是没有的。比如：jspang/jspang，那我们就开始学习这种技巧吧。
+</b>
 <div id="app">
-    {{message}}
+    <!--
+    <zujian></zujian>
+    -->
+    <panda></panda>
 </div>
 <script>
+    /*全局化就是在构造器的外部用Vue.component来注册
+     我们在javascript里注册了一个组件，在HTML中调用了他。这就是最简单的一个组件的编写方法，并且它可以放到多个构造器的作用域里。
+    Vue.component('zujian',{
+        template:`
+            <h2 style="color:red">全局组件</h2>
+        `
+    })
+    */
     var app = new Vue({
         el:'#app',
         data:{
             message:'hello'
+        },
+        components:{
+            "panda":{
+                template:`<h2 style="color:red;">局部注册的panda标签</h2>`
+            }
+            //局部注册组件和全局注册组件是向对应的，局部注册的组件只能在组件注册的作用域里进行使用，其他作用域使用无效。
         }
+
+
     })
 </script>
 </body>

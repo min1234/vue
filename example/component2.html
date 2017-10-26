@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component 组件props 属性设置</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+
+</head>
+<body>
+<h1>Component 组件props 属性设置</h1>
+<hr>
+<div id="app">
+    <app :from-here="message"></app>
+</div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello'
+        },
+        components:{
+            "app":{
+                template:`
+                    <h2>局部组件{{fromHere}}</h2>
+                `,
+                props:['fromHere']
+            }
+
+        }
+    })
+</script>
+</body>
+</html>

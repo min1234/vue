@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extends Option  扩展选项</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+
+</head>
+<body>
+<h1>Extends Option  扩展选项</h1>
+<hr>
+<div id="app">
+    ${num}
+    <button @click="add">加</button>
+</div>
+<b>delimiters的作用是改变我们插值的符号。Vue默认的插值是双大括号{{}}。但有时我们会有需求更改这个插值的形式。</b>
+<script>
+    var bbb = {
+        created:function(){
+            console.log('扩展出来的')
+        },
+        methods:{
+            add:function(){
+                this.num++;
+                console.log('扩展出来的方法')
+            }
+
+        }
+    };
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello',
+            num:1
+        },
+        /*
+        methods:{
+            add:function(){
+                this.num++;
+                console.log('原生方法')
+            }
+        },
+        */
+        extends:bbb,
+        delimiters:['${','}']
+    })
+</script>
+
+</body>
+</html>
