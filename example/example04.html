@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内置组件 -slot讲解</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+
+</head>
+<body>
+<h1>内置组件 -slot讲解</h1>
+<hr>
+<div id="app">
+    <min>
+        <span slot="url">{{minData.url}}</span>
+        <span slot="webName">{{minData.webName}}</span>
+        <span slot="skill">{{minData.skill}}</span>
+
+    </min>
+
+</div>
+
+<template id="temp">
+    <div>
+        <p>链接：<slot name="url"></slot></p>
+        <p>网名：<slot name="webName"></slot></p>
+        <p>技能：<slot name="skill"></slot></p>
+    </div>
+</template>
+<script>
+    var min = {
+        template:'#temp'
+    }
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello',
+            minData:{
+                url:'http://baidu.com',
+                webName:'min',
+                skill:'web前端'
+            }
+        },
+        components:{
+            "min":min
+        }
+
+    })
+</script>
+</body>
+</html>

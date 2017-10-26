@@ -9,15 +9,43 @@
 <h1>实例方法</h1>
 <hr>
 <div id="app">
-    {{message}}
 </div>
+<button onclick="destroy()">销毁</button>
+<button onclick="reload()">刷新</button>
+<button onclick="tick()">更改数据</button>
 <script>
-    var app = new Vue({
-        el:'#app',
-        data:{
-            message:'hello'
+    var jspang = Vue.extend({
+        template:`<p>{{message}}</p>`,
+        data:function(){
+            return {message:'hello word'}
+        },
+        mounted:function(){
+            console.log('挂载')
+        },
+        destroyed:function(){
+            console.log('销毁之后')
+        },
+        updated:function(){
+            console.log('更新之后')
         }
-    })
+    });
+    //$mount方法
+    var vm = new jspang().$mount('#app');
+    //$destroy() 卸载方法
+    function destroy(){
+        vm.$destroy();
+    }
+    //$forceUpdate() 更新方法
+    function reload(){
+        vm.$forceUpdate();
+    }
+    //$nextTick() 数据修改方法
+    function tick(){
+        vm.message="update message info ";
+        vm.$nextTick(function(){
+            console.log('message更新完后我被调用了');
+        })
+    }
 </script>
 
 </body>
